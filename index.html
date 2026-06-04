@@ -211,7 +211,7 @@
           <div><span class="sum-total" id="totalNum">0</span><span class="sum-cur">Kč</span></div>
           <div class="sum-list" id="breakdown"></div>
           <p class="sum-note">Cena je orientační a nezávazná. Konečnou nabídku připravíme na míru podle termínu, místa a programu akce.</p>
-          <a class="sum-cta" id="ctaBtn" href="mailto:kapela@overtime.cz?subject=Nezávazná%20poptávka%20akce">Nezávazně poptat <span class="arr">&rarr;</span></a>
+          <a class="sum-cta" id="ctaBtn" href="#">Nezávazně poptat <span class="arr">&rarr;</span></a>
         </div>
       </div>
     </div>
@@ -297,14 +297,10 @@
     breakdownEl.innerHTML=html;
     animateTo(res.total);
     var termin=czDate(dateInput.value),misto=placeName?placeName:"";
-    var body="Dobrý den,%0D%0A%0D%0Amám zájem o nezávaznou nabídku na akci.%0D%0A%0D%0AOrientační kalkulace:%0D%0A";
-    for(i=0;i<res.items.length;i++){var pr=res.items[i].free?"v ceně":(fmt(res.items[i].price)+" Kč");body+="- "+res.items[i].name+": "+pr+"%0D%0A";}
-    body+="%0D%0ACelkem orientačně: "+fmt(res.total)+" Kč%0D%0A%0D%0A";
-    body+="Termín akce: "+encodeURIComponent(termin)+"%0D%0A";
-    body+="Místo: "+encodeURIComponent(misto)+"%0D%0A";
-    body+="Kontakt:%0D%0A";
-    ctaEl.setAttribute("href","mailto:kapela@overtime.cz?subject=Nezávazná%20poptávka%20akce&body="+body);
-    window.__ovState={totalText:fmt(res.total),href:ctaEl.getAttribute("href")};
+    var lines=[];
+    for(i=0;i<res.items.length;i++){var pr=res.items[i].free?"v ceně":(fmt(res.items[i].price)+" Kč");lines.push("- "+res.items[i].name+": "+pr);}
+    var text="Orientační kalkulace:\n"+lines.join("\n")+"\n\nCelkem orientačně: "+fmt(res.total)+" Kč\n\nTermín akce: "+(termin||"-")+"\nMísto: "+(misto||"-");
+    window.__ovState={totalText:fmt(res.total),text:text};
     if(window.__ovReport){window.__ovReport();}
   }
 
@@ -321,6 +317,8 @@
   kmEl.addEventListener("input",function(){var v=parseFloat(kmEl.value);if(isNaN(v)||v<0){v=0;}oneWayKm=v;source=v>0?"manual":"none";placeName="";addrInput.value="";addrResult.className="addr-result";render();});
   dateInput.addEventListener("change",render);
 
+  ctaEl.addEventListener("click",function(e){e.preventDefault();if(window.parent){window.parent.postMessage({ov:true,ovAction:"enquire",ovText:(window.__ovState&&window.__ovState.text)||""},"*");}});
+
   var inputs=document.querySelectorAll(".opt input"),k;
   for(k=0;k<inputs.length;k++){inputs[k].addEventListener("change",function(){if(this.name==="typ"){applyType();}else{render();}});}
 
@@ -332,7 +330,7 @@
 /* Hlásí výšku obsahu + aktuální cenu rodičovské stránce (pro plovoucí lištu) */
 (function(){
   var wrap=document.querySelector(".ot-wrap");
-  function report(){if(!wrap||!window.parent){return;}var st=window.__ovState||{};window.parent.postMessage({ov:true,ovHeight:Math.ceil(wrap.getBoundingClientRect().height),ovTotalText:st.totalText||"",ovHref:st.href||""},"*");}
+  function report(){if(!wrap||!window.parent){return;}var st=window.__ovState||{};window.parent.postMessage({ov:true,ovHeight:Math.ceil(wrap.getBoundingClientRect().height),ovTotalText:st.totalText||"",ovText:st.text||""},"*");}
   window.__ovReport=report;
   window.addEventListener("load",report);
   window.addEventListener("resize",report);
