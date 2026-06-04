@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -31,7 +30,7 @@
   font-family:'Reddit Sans',sans-serif;
   color:var(--ink);
   background:var(--cream);
-  padding:50px 22px 60px;
+  padding:32px 20px 36px;
   position:relative;
 }
 
@@ -703,24 +702,28 @@
 </script>
 
 <script>
-/* Hlásí výšku rodičovské stránce, aby se iframe sám přizpůsobil (mobil i desktop) */
+/* Hlásí SKUTEČNOU výšku obsahu rodičovské stránce (bez zacyklení) */
 (function(){
+  var wrap = document.querySelector(".ot-wrap");
+  var last = 0;
   function ph(){
-    var h = Math.max(
-      document.documentElement.scrollHeight,
-      document.body.scrollHeight
-    );
-    if(window.parent){ window.parent.postMessage({ ovHeight: h }, "*"); }
+    if(!wrap){ return; }
+    var h = Math.ceil(wrap.getBoundingClientRect().height);
+    if(h && Math.abs(h - last) > 1){
+      last = h;
+      if(window.parent){ window.parent.postMessage({ ovHeight: h }, "*"); }
+    }
   }
   window.addEventListener("load", ph);
   window.addEventListener("resize", ph);
   if(window.ResizeObserver){
     var ro = new ResizeObserver(function(){ ph(); });
-    ro.observe(document.body);
+    ro.observe(wrap);
   } else {
-    setInterval(ph, 800);
+    setInterval(ph, 600);
   }
-  setTimeout(ph, 300);
+  setTimeout(ph, 200);
+  setTimeout(ph, 800);
 })();
 </script>
 </body>
