@@ -49,6 +49,10 @@
 .avail.show{display:block}
 .avail.ok{color:#1f9d6b}
 .avail.busy{color:var(--red)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:460px){.contact-grid{grid-template-columns:1fr}}
+.cinput{border:1.5px solid var(--line);border-radius:14px;background:var(--card-2);padding:15px 16px;font-family:inherit;font-size:15px;font-weight:600;color:var(--ink);outline:none;width:100%}
+.cinput:focus{border-color:var(--red);background:#fff}
 .km-field{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:14px;background:var(--card-2);overflow:hidden;transition:border-color .16s,background .16s}
 .km-field:focus-within{border-color:var(--red);background:#fff}
 .km-field input{flex:1;border:0;background:transparent;padding:15px 16px;font-family:inherit;font-size:16px;font-weight:600;color:var(--ink);outline:none;width:100%}
@@ -209,6 +213,18 @@
 
 
 
+        <div class="ot-section">
+          <div class="ot-step">Krok 10</div>
+          <div class="ot-legend">Kontaktní údaje</div>
+          <div class="ot-desc">Ať víme, komu nabídku poslat. Po kliknutí na „Nezávazně poptat" se všechno i s kalkulací přenese do formuláře &ndash; vy už jen odešlete.</div>
+          <div class="contact-grid">
+            <input class="cinput" id="cName" type="text" placeholder="Jméno" autocomplete="given-name">
+            <input class="cinput" id="cSurname" type="text" placeholder="Příjmení" autocomplete="family-name">
+            <input class="cinput" id="cPhone" type="tel" placeholder="Telefon" autocomplete="tel">
+            <input class="cinput" id="cEmail" type="email" placeholder="E-mail" autocomplete="email">
+          </div>
+        </div>
+
       </div>
 
       <div class="ot-summary">
@@ -346,7 +362,15 @@
   kmEl.addEventListener("input",function(){var v=parseFloat(kmEl.value);if(isNaN(v)||v<0){v=0;}oneWayKm=v;source=v>0?"manual":"none";placeName="";addrInput.value="";addrResult.className="addr-result";render();});
   dateInput.addEventListener("change",function(){ render(); checkAvailability(); });
 
-  ctaEl.addEventListener("click",function(e){e.preventDefault();if(window.parent){window.parent.postMessage({ov:true,ovAction:"enquire",ovText:(window.__ovState&&window.__ovState.text)||""},"*");}});
+  function cval(id){var el=document.getElementById(id);return el?el.value.replace(/^\s+|\s+$/g,""):"";}
+  function sendEnquire(){
+    var nm=cval("cName"),sur=cval("cSurname"),tel=cval("cPhone"),mail=cval("cEmail");
+    var base=(window.__ovState&&window.__ovState.text)||"";
+    var full=base+"\n\nKontakt:\nJméno: "+nm+"\nPříjmení: "+sur+"\nTelefon: "+tel+"\nE-mail: "+mail;
+    if(window.parent){window.parent.postMessage({ov:true,ovAction:"enquire",ovText:full,ovName:nm,ovSurname:sur,ovPhone:tel,ovEmail:mail},"*");}
+  }
+  ctaEl.addEventListener("click",function(e){e.preventDefault();sendEnquire();});
+  window.addEventListener("message",function(e){var d=e.data;if(d&&d.ovReq==="enquire"){sendEnquire();}});
 
   var inputs=document.querySelectorAll(".opt input"),k;
   for(k=0;k<inputs.length;k++){inputs[k].addEventListener("change",function(){if(this.name==="typ"){applyType();}else{render();}});}
