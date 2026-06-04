@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -698,6 +699,28 @@
   }
 
   render();
+})();
+</script>
+
+<script>
+/* Hlásí výšku rodičovské stránce, aby se iframe sám přizpůsobil (mobil i desktop) */
+(function(){
+  function ph(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight
+    );
+    if(window.parent){ window.parent.postMessage({ ovHeight: h }, "*"); }
+  }
+  window.addEventListener("load", ph);
+  window.addEventListener("resize", ph);
+  if(window.ResizeObserver){
+    var ro = new ResizeObserver(function(){ ph(); });
+    ro.observe(document.body);
+  } else {
+    setInterval(ph, 800);
+  }
+  setTimeout(ph, 300);
 })();
 </script>
 </body>
