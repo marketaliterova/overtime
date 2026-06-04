@@ -8,183 +8,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400;500;600;700;800;900&display=swap');
 
 :root{
-  --cream:#f6f1e8;
-  --cream-2:#efe8db;
-  --card:#ffffff;
-  --card-2:#fbf8f2;
-  --ink:#23222b;
-  --ink-soft:#6e6b76;
-  --red:#d23f31;
-  --red-dark:#b63326;
-  --red-soft:#fcecea;
-  --navy:#232734;
-  --navy-2:#2b3041;
-  --line:#e7dfd2;
-  --line-card:#ece5d9;
-  --coral:#ff6f5e;
+  --cream:#f6f1e8;--cream-2:#efe8db;--card:#ffffff;--card-2:#fbf8f2;
+  --ink:#23222b;--ink-soft:#6e6b76;--red:#d23f31;--red-dark:#b63326;--red-soft:#fcecea;
+  --navy:#232734;--navy-2:#2b3041;--line:#e7dfd2;--line-card:#ece5d9;--coral:#ff6f5e;
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
-
-.ot-wrap{
-  font-family:'Reddit Sans',sans-serif;
-  color:var(--ink);
-  background:var(--cream);
-  padding:32px 20px 36px;
-  position:relative;
-}
-
+.ot-wrap{font-family:'Reddit Sans',sans-serif;color:var(--ink);background:var(--cream);padding:32px 20px 36px;position:relative}
 .ot-inner{max-width:1040px;margin:0 auto;position:relative;z-index:1}
-
-/* Header */
-.ot-head{text-align:center;margin-bottom:40px}
-.ot-overline{
-  font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
-  color:var(--red);margin-bottom:12px;
-}
-.ot-title{
-  font-size:clamp(34px,6vw,56px);
-  line-height:1.02;letter-spacing:-.02em;font-weight:800;color:var(--ink);
-}
+.ot-head{text-align:center;margin-bottom:34px}
+.ot-overline{font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:12px}
+.ot-title{font-size:clamp(34px,6vw,56px);line-height:1.02;letter-spacing:-.02em;font-weight:800;color:var(--ink)}
 .ot-title em{font-style:normal;color:var(--red)}
-.ot-sub{color:var(--ink-soft);margin-top:14px;font-size:16px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.55}
-
-/* Grid */
+.ot-sub{color:var(--ink-soft);margin-top:14px;font-size:16px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.55}
 .ot-grid{display:grid;grid-template-columns:1fr 358px;gap:24px;align-items:start}
 @media(max-width:860px){.ot-grid{grid-template-columns:1fr}}
-
-/* Form column */
-.ot-section{
-  background:var(--card);
-  border:1px solid var(--line-card);
-  border-radius:20px;
-  padding:24px 24px 26px;
-  margin-bottom:18px;
-  box-shadow:0 14px 36px -28px rgba(35,39,52,.5);
-}
-.ot-step{
-  font-size:12px;letter-spacing:.16em;font-weight:700;
-  color:var(--red);text-transform:uppercase;margin-bottom:6px;
-}
-.ot-legend{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:18px;color:var(--ink)}
-
+.ot-section{background:var(--card);border:1px solid var(--line-card);border-radius:20px;padding:24px 24px 26px;margin-bottom:18px;box-shadow:0 14px 36px -28px rgba(35,39,52,.5)}
+.ot-step{font-size:12px;letter-spacing:.16em;font-weight:700;color:var(--red);text-transform:uppercase;margin-bottom:6px}
+.ot-legend{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:10px;color:var(--ink)}
+.ot-desc{font-size:14px;color:var(--ink-soft);line-height:1.55;margin-bottom:16px}
+.ot-desc a{color:var(--red);font-weight:700;text-decoration:none}
+.ot-desc a:hover{text-decoration:underline}
 .ot-opts{display:grid;gap:11px}
 .ot-opts.two{grid-template-columns:1fr 1fr}
 @media(max-width:460px){.ot-opts.two{grid-template-columns:1fr}}
-
-.opt{
-  position:relative;display:flex;align-items:center;gap:13px;
-  padding:15px 16px;border-radius:14px;cursor:pointer;
-  border:1.5px solid var(--line);
-  background:var(--card-2);
-  transition:border-color .16s ease,background .16s ease,box-shadow .16s ease;
-}
+.opt{position:relative;display:flex;align-items:center;gap:13px;padding:15px 16px;border-radius:14px;cursor:pointer;border:1.5px solid var(--line);background:var(--card-2);transition:border-color .16s ease,background .16s ease,box-shadow .16s ease}
 .opt:hover{border-color:#d8b6b0;background:#fdf6f4}
 .opt input{position:absolute;opacity:0;pointer-events:none}
-.opt .mark{
-  flex:0 0 20px;height:20px;border-radius:50%;
-  border:2px solid #c4bcae;position:relative;transition:border-color .16s;background:#fff;
-}
-.opt .mark.sq{border-radius:6px}
-.opt .mark::after{
-  content:"";position:absolute;inset:0;margin:auto;
-  width:10px;height:10px;border-radius:50%;
-  background:var(--red);transform:scale(0);transition:transform .15s ease;
-}
-.opt .mark.sq::after{border-radius:2px}
+.opt .mark{flex:0 0 20px;height:20px;border-radius:50%;border:2px solid #c4bcae;position:relative;transition:border-color .16s;background:#fff}
+.opt .mark::after{content:"";position:absolute;inset:0;margin:auto;width:10px;height:10px;border-radius:50%;background:var(--red);transform:scale(0);transition:transform .15s ease}
 .opt .label{flex:1;font-weight:600;font-size:15px;color:var(--ink)}
-.opt .price{
-  font-size:13.5px;font-weight:600;color:var(--ink-soft);white-space:nowrap;
-}
-.opt.is-checked{
-  border-color:var(--red);
-  background:var(--red-soft);
-  box-shadow:0 8px 22px -16px rgba(210,63,49,.9);
-}
+.opt .price{font-size:13.5px;font-weight:600;color:var(--ink-soft);white-space:nowrap}
+.opt.is-checked{border-color:var(--red);background:var(--red-soft);box-shadow:0 8px 22px -16px rgba(210,63,49,.9)}
 .opt.is-checked .mark{border-color:var(--red)}
 .opt.is-checked .mark::after{transform:scale(1)}
 .opt.is-checked .price{color:var(--red)}
 .opt .free{color:#1f9d6b}
-
 .ot-hint{font-size:13px;color:var(--ink-soft);margin-top:13px;line-height:1.5}
-
-/* Input fields (date / address / manual km) */
-.km-field{
-  display:flex;align-items:center;
-  border:1.5px solid var(--line);border-radius:14px;
-  background:var(--card-2);overflow:hidden;transition:border-color .16s,background .16s;
-}
+.ot-note{font-size:12px;color:var(--ink-soft);margin-top:11px;line-height:1.5;font-style:italic}
+.km-field{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:14px;background:var(--card-2);overflow:hidden;transition:border-color .16s,background .16s}
 .km-field:focus-within{border-color:var(--red);background:#fff}
-.km-field input{
-  flex:1;border:0;background:transparent;
-  padding:15px 16px;font-family:inherit;font-size:16px;font-weight:600;
-  color:var(--ink);outline:none;width:100%;
-}
+.km-field input{flex:1;border:0;background:transparent;padding:15px 16px;font-family:inherit;font-size:16px;font-weight:600;color:var(--ink);outline:none;width:100%}
 .km-field input[type="date"]{cursor:pointer}
 .km-field .unit{padding:0 16px;font-weight:700;color:var(--ink-soft);border-left:1px solid var(--line);white-space:nowrap;font-size:13px}
-
 .addr-wrap{position:relative}
-.addr-list{
-  position:absolute;left:0;right:0;top:calc(100% + 6px);
-  background:#fff;border:1px solid var(--line);border-radius:14px;
-  box-shadow:0 18px 44px -20px rgba(35,39,52,.5);overflow:hidden;z-index:30;display:none;
-}
+.addr-list{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 44px -20px rgba(35,39,52,.5);overflow:hidden;z-index:30;display:none}
 .addr-list.show{display:block}
 .addr-item{padding:11px 16px;font-size:14px;font-weight:600;cursor:pointer;border-bottom:1px solid var(--line-card);color:var(--ink)}
 .addr-item:last-child{border-bottom:0}
 .addr-item:hover{background:var(--red-soft)}
 .addr-item small{display:block;color:var(--ink-soft);font-size:12px;font-weight:500;margin-top:2px}
-
 .addr-loading{font-size:13px;color:var(--ink-soft);margin-top:11px;display:none}
 .addr-loading.show{display:block}
-
 .addr-result{margin-top:12px;display:none}
-.addr-result.show{display:flex;align-items:center;justify-content:space-between;gap:12px;
-  background:var(--red-soft);border:1.5px solid var(--red);border-radius:14px;padding:12px 14px}
+.addr-result.show{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--red-soft);border:1.5px solid var(--red);border-radius:14px;padding:12px 14px}
 .addr-result .place{font-weight:600;font-size:13.5px;color:var(--ink);line-height:1.3;flex:1}
 .addr-result .place b{color:var(--red);font-weight:800;display:block;font-size:14px;margin-bottom:1px}
 .addr-result .clr{cursor:pointer;color:var(--ink-soft);font-weight:700;border:0;background:none;font-size:20px;line-height:1;padding:0 2px}
-
 .km-link{display:inline-block;margin-top:13px;font-size:13px;font-weight:700;color:var(--red);text-decoration:none;cursor:pointer}
 .km-link:hover{text-decoration:underline}
-
-/* Summary (dark navy card to echo header/footer) */
 .ot-summary{position:sticky;top:18px}
-.sum-card{
-  background:var(--navy);
-  border-radius:22px;padding:26px 24px;
-  box-shadow:0 30px 60px -34px rgba(35,39,52,.8);
-}
+.sum-card{background:var(--navy);border-radius:22px;padding:26px 24px;box-shadow:0 30px 60px -34px rgba(35,39,52,.8)}
 .sum-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px}
 .sum-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9b97ab;font-weight:700}
 .sum-meta{font-size:13px;color:#cfcad9;font-weight:600;margin-bottom:6px;min-height:18px}
 .sum-meta span{color:#fff;font-weight:700}
-.sum-total{
-  font-size:clamp(46px,10vw,58px);line-height:1;letter-spacing:-.02em;font-weight:800;
-  color:var(--coral);
-}
+.sum-total{font-size:clamp(46px,10vw,58px);line-height:1;letter-spacing:-.02em;font-weight:800;color:var(--coral)}
 .sum-cur{font-size:20px;color:#cfcad9;margin-left:6px;font-weight:700}
-
 .sum-list{margin:20px 0 6px;border-top:1px dashed rgba(255,255,255,.18);padding-top:16px}
 .sum-row{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:7px 0;color:#e9e6f0}
 .sum-row .n{color:#a9a5b8}
 .sum-row .v{font-weight:700;white-space:nowrap}
 .sum-row.free .v{color:#5fd6a0}
 .sum-empty{color:#9b97ab;font-size:14px;padding:7px 0;font-style:italic}
-
 .sum-note{font-size:11.5px;color:#928ea3;line-height:1.55;margin-top:14px}
-.sum-cta{
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  text-decoration:none;margin-top:16px;padding:15px;border-radius:40px;
-  font-size:16px;font-weight:700;letter-spacing:.01em;
-  color:#fff;background:var(--red);
-  transition:transform .12s ease,background .18s ease;
-}
+.sum-cta{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;margin-top:16px;padding:15px;border-radius:40px;font-size:16px;font-weight:700;letter-spacing:.01em;color:#fff;background:var(--red);transition:transform .12s ease,background .18s ease}
 .sum-cta:hover{transform:translateY(-2px);background:#e0493a}
-.sum-cta .arr{
-  width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.22);
-  display:flex;align-items:center;justify-content:center;font-size:14px;
-}
+.sum-cta .arr{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:14px}
 </style>
 </head>
 <body>
@@ -194,20 +93,16 @@
     <div class="ot-head">
       <div class="ot-overline">Overtime &mdash; live kapela</div>
       <h1 class="ot-title">Kalkulačka <em>akce</em></h1>
-      <p class="ot-sub">Sestavte si nezávaznou orientační cenu vaší akce. Vyberte typ události a doplňky &ndash; cena se spočítá hned.</p>
+      <p class="ot-sub">Nabízíme toho spoustu &ndash; vyberte si, co byste chtěli (nebo na co máte rozpočet), a hned uvidíte, kolik vás to bude stát.</p>
     </div>
 
     <div class="ot-grid">
-
-      <!-- LEFT: form -->
       <div>
 
         <div class="ot-section">
           <div class="ot-step">Krok 01</div>
           <div class="ot-legend">Termín akce</div>
-          <div class="km-field">
-            <input type="date" id="dateInput" aria-label="Datum akce">
-          </div>
+          <div class="km-field"><input type="date" id="dateInput" aria-label="Datum akce"></div>
           <div class="ot-hint">Vyberte datum konání akce. Dostupnost termínu potvrdíme v nabídce.</div>
         </div>
 
@@ -215,135 +110,86 @@
           <div class="ot-step">Krok 02</div>
           <div class="ot-legend">Typ akce</div>
           <div class="ot-opts two" id="grp-typ">
-            <label class="opt">
-              <input type="radio" name="typ" value="svatba" data-price="33000" checked>
-              <span class="mark"></span>
-              <span class="label">Svatba</span>
-            </label>
-            <label class="opt">
-              <input type="radio" name="typ" value="narozeniny" data-price="33000">
-              <span class="mark"></span>
-              <span class="label">Narozeninová oslava</span>
-            </label>
-            <label class="opt">
-              <input type="radio" name="typ" value="maturitni" data-price="38000">
-              <span class="mark"></span>
-              <span class="label">Maturitní ples</span>
-            </label>
-            <label class="opt">
-              <input type="radio" name="typ" value="ples" data-price="38000">
-              <span class="mark"></span>
-              <span class="label">Ples (městský / hasičský / obecní)</span>
-            </label>
-            <label class="opt">
-              <input type="radio" name="typ" value="firemni" data-price="38000">
-              <span class="mark"></span>
-              <span class="label">Firemní akce</span>
-            </label>
-            <label class="opt">
-              <input type="radio" name="typ" value="slavnost" data-price="38000">
-              <span class="mark"></span>
-              <span class="label">Slavnost / městská akce</span>
-            </label>
+            <label class="opt"><input type="radio" name="typ" value="svatba" data-price="33000" checked><span class="mark"></span><span class="label">Svatba</span></label>
+            <label class="opt"><input type="radio" name="typ" value="narozeniny" data-price="33000"><span class="mark"></span><span class="label">Narozeninová oslava</span></label>
+            <label class="opt"><input type="radio" name="typ" value="maturitni" data-price="38000"><span class="mark"></span><span class="label">Maturitní ples</span></label>
+            <label class="opt"><input type="radio" name="typ" value="ples" data-price="38000"><span class="mark"></span><span class="label">Ples (městský / hasičský / obecní)</span></label>
+            <label class="opt"><input type="radio" name="typ" value="firemni" data-price="38000"><span class="mark"></span><span class="label">Firemní akce</span></label>
+            <label class="opt"><input type="radio" name="typ" value="slavnost" data-price="38000"><span class="mark"></span><span class="label">Slavnost / městská akce</span></label>
           </div>
         </div>
 
         <div class="ot-section">
           <div class="ot-step">Krok 03</div>
-          <div class="ot-legend">Počet hostů a ozvučení</div>
+          <div class="ot-legend">Počet hostů</div>
+          <div class="ot-desc" id="hosteDesc"></div>
           <div class="ot-opts two" id="grp-hoste">
-            <label class="opt">
-              <input type="radio" name="hoste" value="do150" data-price="0" checked>
-              <span class="mark"></span>
-              <span class="label">Do 150 hostů</span>
-              <span class="price free">v ceně</span>
-            </label>
-            <label class="opt">
-              <input type="radio" name="hoste" value="nad150" data-price="6000">
-              <span class="mark"></span>
-              <span class="label">Nad 150 hostů</span>
-              <span class="price">+6&nbsp;000&nbsp;Kč</span>
-            </label>
+            <label class="opt"><input type="radio" name="hoste" value="do150" data-price="0" checked><span class="mark"></span><span class="label">Do 150 hostů</span><span class="price free">v ceně</span></label>
+            <label class="opt"><input type="radio" name="hoste" value="nad150" data-price="20000"><span class="mark"></span><span class="label">Nad 150 hostů</span><span class="price">+20&nbsp;000&nbsp;Kč</span></label>
           </div>
-          <div class="ot-hint">Ozvučení kapely je do 150 osob v ceně, u větších akcí se připočítává.</div>
+          <div class="ot-note">U větších akcí je cena ozvučení orientační a upřesní se podle konkrétních technických požadavků.</div>
         </div>
 
-        <div class="ot-section">
+        <div class="ot-section" id="secDoprovod">
           <div class="ot-step">Krok 04</div>
-          <div class="ot-legend">Hudební doprovod</div>
+          <div class="ot-legend">Doprovod obřadu</div>
+          <div class="ot-desc">K oltáři vás nedovedeme, ale doprovodíme vás hudbou &ndash; nástup, výměna prstýnků, gratulace i odchod uličkou. Zahrajeme songy, které máte rádi, v romantické úpravě: kytara, violoncello, housle, klavír, případně i se zpěvem. Vyberte sólo, duo nebo trio a nástroje doladíme spolu.</div>
           <div class="ot-opts" id="grp-doprovod">
-            <label class="opt">
-              <input type="radio" name="doprovod" value="zadny" data-price="0" checked>
-              <span class="mark"></span>
-              <span class="label">Bez doprovodu</span>
-              <span class="price">&mdash;</span>
-            </label>
-            <label class="opt">
-              <input type="radio" name="doprovod" value="solo" data-price="7000">
-              <span class="mark"></span>
-              <span class="label">Sólo</span>
-              <span class="price">+7&nbsp;000&nbsp;Kč</span>
-            </label>
-            <label class="opt">
-              <input type="radio" name="doprovod" value="duo" data-price="14000">
-              <span class="mark"></span>
-              <span class="label">Duo</span>
-              <span class="price">+14&nbsp;000&nbsp;Kč</span>
-            </label>
-            <label class="opt">
-              <input type="radio" name="doprovod" value="trio" data-price="21000">
-              <span class="mark"></span>
-              <span class="label">Trio</span>
-              <span class="price">+21&nbsp;000&nbsp;Kč</span>
-            </label>
+            <label class="opt"><input type="radio" name="doprovod" value="zadny" data-price="0" checked><span class="mark"></span><span class="label">Nechci doprovod</span><span class="price">&mdash;</span></label>
+            <label class="opt"><input type="radio" name="doprovod" value="solo" data-price="7000" data-label="Doprovod obřadu – sólo"><span class="mark"></span><span class="label">Sólo</span><span class="price">+7&nbsp;000&nbsp;Kč</span></label>
+            <label class="opt"><input type="radio" name="doprovod" value="duo" data-price="14000" data-label="Doprovod obřadu – duo"><span class="mark"></span><span class="label">Duo</span><span class="price">+14&nbsp;000&nbsp;Kč</span></label>
+            <label class="opt"><input type="radio" name="doprovod" value="trio" data-price="21000" data-label="Doprovod obřadu – trio"><span class="mark"></span><span class="label">Trio</span><span class="price">+21&nbsp;000&nbsp;Kč</span></label>
           </div>
         </div>
 
-        <div class="ot-section">
+        <div class="ot-section" id="secObrad">
           <div class="ot-step">Krok 05</div>
-          <div class="ot-legend">Doplňky</div>
-          <div class="ot-opts" id="grp-doplnky">
-            <label class="opt">
-              <input type="checkbox" name="moderator" data-price="7000" data-label="Moderátor">
-              <span class="mark sq"></span>
-              <span class="label">Moderátor</span>
-              <span class="price">+7&nbsp;000&nbsp;Kč</span>
-            </label>
-            <label class="opt">
-              <input type="checkbox" name="obrad" data-price="6000" data-label="Ozvučení obřadu">
-              <span class="mark sq"></span>
-              <span class="label">Ozvučení obřadu</span>
-              <span class="price">+6&nbsp;000&nbsp;Kč</span>
-            </label>
+          <div class="ot-legend">Ozvučení obřadu</div>
+          <div class="ot-desc">Budete tam mít i babičky a dědečky, kteří chtějí slyšet, co vám oddávající přeje do společných let. Dáme mu do ruky mikrofon a pustíme vybrané písničky na nástup, prstýnky, gratulace i odchod. A kameraman většinou ocení, když je vaše „ano" slyšet i na videu.</div>
+          <div class="ot-opts two" id="grp-obrad">
+            <label class="opt"><input type="radio" name="obrad" value="ne" data-price="0" checked><span class="mark"></span><span class="label">Ne</span><span class="price">&mdash;</span></label>
+            <label class="opt"><input type="radio" name="obrad" value="ano" data-price="6000" data-label="Ozvučení obřadu"><span class="mark"></span><span class="label">Ano</span><span class="price">+6&nbsp;000&nbsp;Kč</span></label>
           </div>
         </div>
 
-        <div class="ot-section">
+        <div class="ot-section" id="secAfter">
           <div class="ot-step">Krok 06</div>
           <div class="ot-legend">Afterparty</div>
+          <div class="ot-desc">Chcete po kapele pokračovat až do rána? My to sice nezahrajeme, ale naši DJ Petrové vám to pustí z beden &ndash; <a href="https://www.delamsvatby.cz/" target="_blank" rel="noopener">DJ Petr Michal</a>, <a href="https://djpetrklika.cz/" target="_blank" rel="noopener">DJ Pietro</a>, <a href="https://djpetrnovak.cz/" target="_blank" rel="noopener">DJ Petr Novák</a>. Buď u vás zůstanou a hrají, nebo vám necháme jen techniku &ndash; zapíchnete mobil či notebook a pouštíte si vlastní hudbu (pak jen potřebujeme tašku s technikou dovézt do Prahy).</div>
           <div class="ot-opts" id="grp-after">
-            <label class="opt">
-              <input type="checkbox" name="techika" data-price="4000" data-label="Zapůjčení techniky na afterparty">
-              <span class="mark sq"></span>
-              <span class="label">Zapůjčení techniky</span>
-              <span class="price">+4&nbsp;000&nbsp;Kč</span>
-            </label>
-            <label class="opt">
-              <input type="checkbox" name="dj" data-price="18000" data-label="DJ na afterparty">
-              <span class="mark sq"></span>
-              <span class="label">DJ na afterparty</span>
-              <span class="price">+18&nbsp;000&nbsp;Kč</span>
-            </label>
+            <label class="opt"><input type="radio" name="afterparty" value="ne" data-price="0" checked><span class="mark"></span><span class="label">Ne</span><span class="price">&mdash;</span></label>
+            <label class="opt" id="optTechnika"><input type="radio" name="afterparty" value="technika" data-price="4000" data-label="Afterparty – zapůjčení techniky"><span class="mark"></span><span class="label">Ano, pouze technika</span><span class="price">+4&nbsp;000&nbsp;Kč</span></label>
+            <label class="opt"><input type="radio" name="afterparty" value="dj" data-price="18000" data-label="Afterparty – DJ"><span class="mark"></span><span class="label">Ano, i s DJem</span><span class="price">+18&nbsp;000&nbsp;Kč</span></label>
+          </div>
+          <div class="ot-note">Cena za pronájem technického zajištění je orientační a upřesňuje se podle konkrétních požadavků.</div>
+        </div>
+
+        <div class="ot-section" id="secModerator">
+          <div class="ot-step">Krok 07</div>
+          <div class="ot-legend">Moderátor</div>
+          <div class="ot-desc" id="moderatorDesc"></div>
+          <div class="ot-opts two" id="grp-moderator">
+            <label class="opt"><input type="radio" name="moderator" value="ne" data-price="0" checked><span class="mark"></span><span class="label">Ne</span><span class="price">&mdash;</span></label>
+            <label class="opt"><input type="radio" name="moderator" value="ano" data-price="7000" data-label="Moderátor"><span class="mark"></span><span class="label">Ano</span><span class="price">+7&nbsp;000&nbsp;Kč</span></label>
+          </div>
+        </div>
+
+        <div class="ot-section" id="secFotograf">
+          <div class="ot-step">Krok 08</div>
+          <div class="ot-legend">Fotograf</div>
+          <div class="ot-desc">Zdokumentujeme celou akci, ať vám zůstane víc než jen vzpomínky a rozmazané fotky z mobilu. Vyberte celodenní balíček, nebo kratší šestihodinový.</div>
+          <div class="ot-opts" id="grp-fotograf">
+            <label class="opt"><input type="radio" name="fotograf" value="ne" data-price="0" checked><span class="mark"></span><span class="label">Nechci fotografa</span><span class="price">&mdash;</span></label>
+            <label class="opt"><input type="radio" name="fotograf" value="den" data-price="30000" data-label="Fotograf (celý den)"><span class="mark"></span><span class="label">Celý den</span><span class="price">+30&nbsp;000&nbsp;Kč</span></label>
+            <label class="opt"><input type="radio" name="fotograf" value="6h" data-price="24000" data-label="Fotograf (6 hodin)"><span class="mark"></span><span class="label">6 hodin</span><span class="price">+24&nbsp;000&nbsp;Kč</span></label>
           </div>
         </div>
 
         <div class="ot-section">
-          <div class="ot-step">Krok 07</div>
+          <div class="ot-step">Krok 09</div>
           <div class="ot-legend">Doprava</div>
           <div class="addr-wrap">
-            <div class="km-field">
-              <input type="text" id="addrInput" placeholder="Místo akce – město nebo adresa…" autocomplete="off">
-            </div>
+            <div class="km-field"><input type="text" id="addrInput" placeholder="Místo akce – město nebo adresa…" autocomplete="off"></div>
             <div class="addr-list" id="addrList"></div>
           </div>
           <div class="addr-loading" id="addrLoading">Hledám místo&hellip;</div>
@@ -358,26 +204,16 @@
 
       </div>
 
-      <!-- RIGHT: summary -->
       <div class="ot-summary">
         <div class="sum-card">
-          <div class="sum-head">
-            <span class="sum-label">Orientační cena</span>
-          </div>
+          <div class="sum-head"><span class="sum-label">Orientační cena</span></div>
           <div class="sum-meta" id="sumMeta"></div>
           <div><span class="sum-total" id="totalNum">0</span><span class="sum-cur">Kč</span></div>
-
           <div class="sum-list" id="breakdown"></div>
-
           <p class="sum-note">Cena je orientační a nezávazná. Konečnou nabídku připravíme na míru podle termínu, místa a programu akce.</p>
-
-          <a class="sum-cta" id="ctaBtn" href="mailto:kapela@overtime.cz?subject=Nezávazná%20poptávka%20akce">
-            Nezávazně poptat
-            <span class="arr">&rarr;</span>
-          </a>
+          <a class="sum-cta" id="ctaBtn" href="mailto:kapela@overtime.cz?subject=Nezávazná%20poptávka%20akce">Nezávazně poptat <span class="arr">&rarr;</span></a>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -386,345 +222,122 @@
 (function(){
   "use strict";
 
-  var KM_RATE = 15;            // Kč za kilometr
-  var ROUND_TRIP = 2;          // tam i zpět
-  var ROAD_FACTOR = 1.3;       // korekce vzdušné čáry na reálnou trasu
-  var PRAHA6_LAT = 50.0900;    // referenční bod Praha 6
-  var PRAHA6_LON = 14.3700;
+  var KM_RATE = 15, ROUND_TRIP = 2, ROAD_FACTOR = 1.3, PRAHA6_LAT = 50.0900, PRAHA6_LON = 14.3700;
 
-  function fmt(n){
-    var s = String(Math.round(n));
-    var out = "";
-    var c = 0;
-    var i;
-    for(i = s.length - 1; i >= 0; i--){
-      out = s.charAt(i) + out;
-      c++;
-      if(c % 3 === 0 && i > 0){ out = "\u00A0" + out; }
-    }
-    return out;
-  }
+  /* Texty podle typu akce */
+  var HOSTE_TEXT = {
+    _: "Ne že bychom chtěli hodnotit váš společenský kredit a kolik lidí vás má rádo &ndash; jen potřebujeme vědět, jaké bedny máme vzít. Ať nás slyšíte, ale zároveň ať vám neurveme hlavu.",
+    maturitni: "Ne že bychom chtěli hodnotit váš společenský kredit &ndash; jen potřebujeme vědět, jaké bedny máme vzít. Počítejte všechny návštěvníky: víme, že vás je ve třídě kolem třiceti, ale jde nám o počet prodaných lístků.",
+    firemni: "Když dorazí šéf, dorazí celá firma. Potřebujeme vědět, kolik vás bude a jaké bedny vzít &ndash; ať šéfův proslov rezonuje v uších všech, ale ne v okenních výplních."
+  };
+  var MOD_TEXT = {
+    _: "Nemáte nikoho dost extrovertního, kdo by držel harmonogram, odmoderoval program a říkal lidem, co se kdy děje? Od toho jsme tu my. Ideální je, když má po ruce někoho, kdo zná jména hostů.",
+    svatba: "Nemáte nikoho dost extrovertního, kdo by odmoderoval zvedání bot a svatební kvíz, držel harmonogram a říkal lidem, co se kdy děje? Od toho jsme tu my. Ideální je, když má moderátor po ruce někoho, kdo zná jména hostů &ndash; ať neoslovuje „hej, ty“.",
+    maturitni: "Nemáte nikoho dost extrovertního, kdo by přečetl jména maturantů ve stylu Joea Rogana, ohlásil půlnoční překvapení a držel harmonogram? Od toho jsme tu my. Chápeme, že na třídní profesory se nikdo koukat nechce &ndash; stačí, že to musíte dělat vy.",
+    firemni: "Potřebujete někoho, kdo udrží taktovku večera pevně v ruce &ndash; ať si holky z marketingu konečně dojdou na bar na prosecco? Od toho jsme tu my."
+  };
 
-  function czDate(v){
-    if(!v){ return ""; }
-    var p = v.split("-");
-    if(p.length !== 3){ return v; }
-    return parseInt(p[2], 10) + ". " + parseInt(p[1], 10) + ". " + p[0];
-  }
+  function fmt(n){var s=String(Math.round(n)),out="",c=0,i;for(i=s.length-1;i>=0;i--){out=s.charAt(i)+out;c++;if(c%3===0&&i>0){out="\u00A0"+out;}}return out;}
+  function czDate(v){if(!v){return "";}var p=v.split("-");if(p.length!==3){return v;}return parseInt(p[2],10)+". "+parseInt(p[1],10)+". "+p[0];}
+  function haversine(la1,lo1,la2,lo2){var R=6371,rad=Math.PI/180,dLat=(la2-la1)*rad,dLon=(lo2-lo1)*rad;var a=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(la1*rad)*Math.cos(la2*rad)*Math.sin(dLon/2)*Math.sin(dLon/2);return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));}
 
-  function haversine(lat1, lon1, lat2, lon2){
-    var R = 6371;
-    var rad = Math.PI / 180;
-    var dLat = (lat2 - lat1) * rad;
-    var dLon = (lon2 - lon1) * rad;
-    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.cos(lat1*rad) * Math.cos(lat2*rad) * Math.sin(dLon/2) * Math.sin(dLon/2);
-    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  }
+  var totalEl=document.getElementById("totalNum"),breakdownEl=document.getElementById("breakdown"),ctaEl=document.getElementById("ctaBtn"),metaEl=document.getElementById("sumMeta"),dateInput=document.getElementById("dateInput");
+  var hosteDesc=document.getElementById("hosteDesc"),moderatorDesc=document.getElementById("moderatorDesc");
+  var secDoprovod=document.getElementById("secDoprovod"),secObrad=document.getElementById("secObrad"),optTechnika=document.getElementById("optTechnika");
+  var addrInput=document.getElementById("addrInput"),addrList=document.getElementById("addrList"),addrLoading=document.getElementById("addrLoading"),addrResult=document.getElementById("addrResult"),manualToggle=document.getElementById("manualToggle"),manualWrap=document.getElementById("manualWrap"),kmEl=document.getElementById("kmInput");
 
-  var totalEl = document.getElementById("totalNum");
-  var breakdownEl = document.getElementById("breakdown");
-  var ctaEl = document.getElementById("ctaBtn");
-  var metaEl = document.getElementById("sumMeta");
-  var dateInput = document.getElementById("dateInput");
+  var oneWayKm=0,placeName="",source="none",displayed=0,animId=null,searchTimer=null;
 
-  var addrInput = document.getElementById("addrInput");
-  var addrList = document.getElementById("addrList");
-  var addrLoading = document.getElementById("addrLoading");
-  var addrResult = document.getElementById("addrResult");
-  var manualToggle = document.getElementById("manualToggle");
-  var manualWrap = document.getElementById("manualWrap");
-  var kmEl = document.getElementById("kmInput");
+  function animateTo(target){if(animId){cancelAnimationFrame(animId);}var start=displayed,diff=target-start,dur=420,t0=null;function step(ts){if(t0===null){t0=ts;}var p=(ts-t0)/dur;if(p>1){p=1;}var eased=1-Math.pow(1-p,3);totalEl.textContent=fmt(start+diff*eased);if(p<1){animId=requestAnimationFrame(step);}else{displayed=target;totalEl.textContent=fmt(target);}}animId=requestAnimationFrame(step);}
 
-  var oneWayKm = 0;
-  var placeName = "";
-  var source = "none";
+  function syncChecked(){var opts=document.querySelectorAll(".opt"),i;for(i=0;i<opts.length;i++){var input=opts[i].querySelector("input");opts[i].className=(input&&input.checked)?"opt is-checked":"opt";}}
+  function getRadio(name){var els=document.getElementsByName(name),i;for(i=0;i<els.length;i++){if(els[i].checked){return els[i];}}return null;}
+  function setRadio(name,val){var els=document.getElementsByName(name),i;for(i=0;i<els.length;i++){els[i].checked=(els[i].value===val);}}
+  function radioItem(name){var r=getRadio(name);if(!r){return null;}var p=parseInt(r.getAttribute("data-price"),10);if(isNaN(p)||p<=0){return null;}return {name:r.getAttribute("data-label"),price:p};}
 
-  var displayed = 0;
-  var animId = null;
-  var searchTimer = null;
+  function renumberSteps(){var secs=document.querySelectorAll(".ot-section"),n=0,i;for(i=0;i<secs.length;i++){if(secs[i].style.display!=="none"){n++;var lbl=secs[i].querySelector(".ot-step");if(lbl){lbl.textContent="Krok "+(n<10?("0"+n):n);}}}}
 
-  function animateTo(target){
-    if(animId){ cancelAnimationFrame(animId); }
-    var start = displayed;
-    var diff = target - start;
-    var dur = 420;
-    var t0 = null;
-    function step(ts){
-      if(t0 === null){ t0 = ts; }
-      var p = (ts - t0) / dur;
-      if(p > 1){ p = 1; }
-      var eased = 1 - Math.pow(1 - p, 3);
-      totalEl.textContent = fmt(start + diff * eased);
-      if(p < 1){ animId = requestAnimationFrame(step); }
-      else { displayed = target; totalEl.textContent = fmt(target); }
-    }
-    animId = requestAnimationFrame(step);
-  }
-
-  function syncChecked(){
-    var opts = document.querySelectorAll(".opt");
-    var i;
-    for(i = 0; i < opts.length; i++){
-      var input = opts[i].querySelector("input");
-      if(input && input.checked){ opts[i].className = "opt is-checked"; }
-      else { opts[i].className = "opt"; }
-    }
-  }
-
-  function getRadio(name){
-    var els = document.getElementsByName(name);
-    var i;
-    for(i = 0; i < els.length; i++){
-      if(els[i].checked){ return els[i]; }
-    }
-    return null;
+  function applyType(){
+    var t=getRadio("typ")?getRadio("typ").value:"svatba";
+    var wedding=(t==="svatba");
+    secDoprovod.style.display=wedding?"block":"none";
+    secObrad.style.display=wedding?"block":"none";
+    if(!wedding){ setRadio("doprovod","zadny"); setRadio("obrad","ne"); }
+    var hideTech=(t==="maturitni");
+    optTechnika.style.display=hideTech?"none":"flex";
+    if(hideTech){var ap=getRadio("afterparty");if(ap&&ap.value==="technika"){setRadio("afterparty","ne");}}
+    hosteDesc.innerHTML=HOSTE_TEXT[t]||HOSTE_TEXT._;
+    moderatorDesc.innerHTML=MOD_TEXT[t]||MOD_TEXT._;
+    renumberSteps();
+    render();
   }
 
   function calc(){
-    var items = [];
-    var total = 0;
-
-    var typ = getRadio("typ");
-    if(typ){
-      var tp = parseInt(typ.getAttribute("data-price"), 10);
-      items.push({ name: "Kapela", price: tp });
-      total += tp;
-    }
-
-    var hoste = getRadio("hoste");
-    if(hoste){
-      var hp = parseInt(hoste.getAttribute("data-price"), 10);
-      if(hp > 0){
-        items.push({ name: "Ozvučení kapely (nad 150 hostů)", price: hp });
-        total += hp;
-      } else {
-        items.push({ name: "Ozvučení kapely (do 150 hostů)", price: 0, free: true });
-      }
-    }
-
-    var dop = getRadio("doprovod");
-    if(dop && dop.value !== "zadny"){
-      var dp = parseInt(dop.getAttribute("data-price"), 10);
-      var dnames = { solo: "Hudební doprovod – sólo", duo: "Hudební doprovod – duo", trio: "Hudební doprovod – trio" };
-      items.push({ name: dnames[dop.value], price: dp });
-      total += dp;
-    }
-
-    var checks = document.querySelectorAll('input[type="checkbox"]');
-    var i;
-    for(i = 0; i < checks.length; i++){
-      if(checks[i].checked){
-        var cp = parseInt(checks[i].getAttribute("data-price"), 10);
-        items.push({ name: checks[i].getAttribute("data-label"), price: cp });
-        total += cp;
-      }
-    }
-
-    if(oneWayKm > 0){
-      var dopravaCena = oneWayKm * ROUND_TRIP * KM_RATE;
-      items.push({ name: "Doprava (" + oneWayKm + " km, tam a zpět)", price: dopravaCena });
-      total += dopravaCena;
-    }
-
-    return { items: items, total: total };
+    var items=[],total=0,it;
+    var typ=getRadio("typ");
+    if(typ){var tp=parseInt(typ.getAttribute("data-price"),10);items.push({name:"Kapela",price:tp});total+=tp;}
+    var hoste=getRadio("hoste");
+    if(hoste){var hp=parseInt(hoste.getAttribute("data-price"),10);if(hp>0){items.push({name:"Ozvučení (nad 150 hostů)",price:hp});total+=hp;}else{items.push({name:"Ozvučení (do 150 hostů)",price:0,free:true});}}
+    var groups=["doprovod","obrad","afterparty","moderator","fotograf"],g;
+    for(g=0;g<groups.length;g++){it=radioItem(groups[g]);if(it){items.push(it);total+=it.price;}}
+    if(oneWayKm>0){var dc=oneWayKm*ROUND_TRIP*KM_RATE;items.push({name:"Doprava ("+oneWayKm+" km, tam a zpět)",price:dc});total+=dc;}
+    return {items:items,total:total};
   }
 
   function render(){
     syncChecked();
-    var res = calc();
-
-    // meta (termin + misto) v souhrnu
-    var metaParts = [];
-    var d = czDate(dateInput.value);
-    if(d){ metaParts.push('<span>' + d + '</span>'); }
-    if(placeName){ metaParts.push(placeName); }
-    metaEl.innerHTML = metaParts.join(" · ");
-
-    var html = "";
-    var i;
-    if(res.items.length === 0){
-      html = '<div class="sum-empty">Vyberte položky výše&hellip;</div>';
-    } else {
-      for(i = 0; i < res.items.length; i++){
-        var it = res.items[i];
-        if(it.free){
-          html += '<div class="sum-row free"><span class="n">' + it.name + '</span><span class="v">v ceně</span></div>';
-        } else {
-          html += '<div class="sum-row"><span class="n">' + it.name + '</span><span class="v">' + fmt(it.price) + '&nbsp;Kč</span></div>';
-        }
-      }
-    }
-    breakdownEl.innerHTML = html;
+    var res=calc();
+    var metaParts=[],d=czDate(dateInput.value);
+    if(d){metaParts.push('<span>'+d+'</span>');}
+    if(placeName){metaParts.push(placeName);}
+    metaEl.innerHTML=metaParts.join(" · ");
+    var html="",i;
+    if(res.items.length===0){html='<div class="sum-empty">Vyberte položky výše&hellip;</div>';}
+    else{for(i=0;i<res.items.length;i++){var item=res.items[i];if(item.free){html+='<div class="sum-row free"><span class="n">'+item.name+'</span><span class="v">v ceně</span></div>';}else{html+='<div class="sum-row"><span class="n">'+item.name+'</span><span class="v">'+fmt(item.price)+'&nbsp;Kč</span></div>';}}}
+    breakdownEl.innerHTML=html;
     animateTo(res.total);
-
-    // mailto
-    var termin = czDate(dateInput.value);
-    var misto = placeName ? placeName : "";
-    var body = "Dobrý den,%0D%0A%0D%0Amám zájem o nezávaznou nabídku na akci.%0D%0A%0D%0AOrientační kalkulace:%0D%0A";
-    for(i = 0; i < res.items.length; i++){
-      var pr = res.items[i].free ? "v ceně" : (fmt(res.items[i].price) + " Kč");
-      body += "- " + res.items[i].name + ": " + pr + "%0D%0A";
-    }
-    body += "%0D%0ACelkem orientačně: " + fmt(res.total) + " Kč%0D%0A%0D%0A";
-    body += "Termín akce: " + encodeURIComponent(termin) + "%0D%0A";
-    body += "Místo: " + encodeURIComponent(misto) + "%0D%0A";
-    body += "Kontakt:%0D%0A";
-    ctaEl.setAttribute("href", "mailto:kapela@overtime.cz?subject=Nezávazná%20poptávka%20akce&body=" + body);
-
-    window.__ovState = { totalText: fmt(res.total), href: ctaEl.getAttribute("href") };
-    if(window.__ovReport){ window.__ovReport(); }
+    var termin=czDate(dateInput.value),misto=placeName?placeName:"";
+    var body="Dobrý den,%0D%0A%0D%0Amám zájem o nezávaznou nabídku na akci.%0D%0A%0D%0AOrientační kalkulace:%0D%0A";
+    for(i=0;i<res.items.length;i++){var pr=res.items[i].free?"v ceně":(fmt(res.items[i].price)+" Kč");body+="- "+res.items[i].name+": "+pr+"%0D%0A";}
+    body+="%0D%0ACelkem orientačně: "+fmt(res.total)+" Kč%0D%0A%0D%0A";
+    body+="Termín akce: "+encodeURIComponent(termin)+"%0D%0A";
+    body+="Místo: "+encodeURIComponent(misto)+"%0D%0A";
+    body+="Kontakt:%0D%0A";
+    ctaEl.setAttribute("href","mailto:kapela@overtime.cz?subject=Nezávazná%20poptávka%20akce&body="+body);
+    window.__ovState={totalText:fmt(res.total),href:ctaEl.getAttribute("href")};
+    if(window.__ovReport){window.__ovReport();}
   }
 
-  /* ---- Vyhledávání místa (OpenStreetMap Nominatim) ---- */
+  /* Vyhledávání místa */
+  function hideList(){addrList.className="addr-list";addrList.innerHTML="";}
+  function doSearch(q){addrLoading.className="addr-loading show";var url="https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cz&limit=5&q="+encodeURIComponent(q);fetch(url,{headers:{"Accept-Language":"cs"}}).then(function(r){return r.json();}).then(function(data){addrLoading.className="addr-loading";renderList(data);}).catch(function(){addrLoading.className="addr-loading";hideList();});}
+  function shortName(full){var parts=full.split(","),head=parts[0]?parts[0].trim():full,rest=parts.slice(1,3).join(",").trim();return {head:head,rest:rest};}
+  function renderList(data){if(!data||data.length===0){hideList();return;}var html="",i;for(i=0;i<data.length;i++){var nm=shortName(data[i].display_name);html+='<div class="addr-item" data-lat="'+data[i].lat+'" data-lon="'+data[i].lon+'" data-name="'+nm.head.replace(/"/g,"")+'">'+nm.head+'<small>'+nm.rest+'</small></div>';}addrList.innerHTML=html;addrList.className="addr-list show";var items=addrList.querySelectorAll(".addr-item"),j;for(j=0;j<items.length;j++){items[j].addEventListener("click",function(){selectPlace(parseFloat(this.getAttribute("data-lat")),parseFloat(this.getAttribute("data-lon")),this.getAttribute("data-name"));});}}
+  function selectPlace(lat,lon,name){var km=Math.round(haversine(PRAHA6_LAT,PRAHA6_LON,lat,lon)*ROAD_FACTOR);oneWayKm=km;placeName=name;source="addr";hideList();addrInput.value=name;var rt=km*ROUND_TRIP*KM_RATE;addrResult.innerHTML='<div class="place"><b>'+name+'</b>≈ '+km+' km z Prahy 6 (jednosměrně) · doprava tam a zpět '+fmt(rt)+' Kč</div><button class="clr" id="clrBtn" title="Zrušit">&times;</button>';addrResult.className="addr-result show";document.getElementById("clrBtn").addEventListener("click",clearPlace);render();}
+  function clearPlace(){oneWayKm=0;placeName="";source="none";addrInput.value="";addrResult.className="addr-result";addrResult.innerHTML="";render();}
+  addrInput.addEventListener("input",function(){var q=addrInput.value.trim();if(source==="addr"){source="none";oneWayKm=0;placeName="";addrResult.className="addr-result";}if(q.length<3){hideList();render();return;}if(searchTimer){clearTimeout(searchTimer);}searchTimer=setTimeout(function(){doSearch(q);},450);});
+  document.addEventListener("click",function(e){if(!addrList.contains(e.target)&&e.target!==addrInput){hideList();}});
+  manualToggle.addEventListener("click",function(){if(manualWrap.style.display==="none"){manualWrap.style.display="flex";manualToggle.textContent="Skrýt ruční zadání";}else{manualWrap.style.display="none";manualToggle.textContent="Zadat vzdálenost ručně";}});
+  kmEl.addEventListener("input",function(){var v=parseFloat(kmEl.value);if(isNaN(v)||v<0){v=0;}oneWayKm=v;source=v>0?"manual":"none";placeName="";addrInput.value="";addrResult.className="addr-result";render();});
+  dateInput.addEventListener("change",render);
 
-  function hideList(){ addrList.className = "addr-list"; addrList.innerHTML = ""; }
+  var inputs=document.querySelectorAll(".opt input"),k;
+  for(k=0;k<inputs.length;k++){inputs[k].addEventListener("change",function(){if(this.name==="typ"){applyType();}else{render();}});}
 
-  function doSearch(q){
-    addrLoading.className = "addr-loading show";
-    var url = "https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cz&limit=5&q=" + encodeURIComponent(q);
-    fetch(url, { headers: { "Accept-Language": "cs" } })
-      .then(function(r){ return r.json(); })
-      .then(function(data){
-        addrLoading.className = "addr-loading";
-        renderList(data);
-      })
-      .catch(function(){
-        addrLoading.className = "addr-loading";
-        hideList();
-      });
-  }
-
-  function shortName(full){
-    var parts = full.split(",");
-    var head = parts[0] ? parts[0].trim() : full;
-    var rest = parts.slice(1, 3).join(",").trim();
-    return { head: head, rest: rest };
-  }
-
-  function renderList(data){
-    if(!data || data.length === 0){ hideList(); return; }
-    var html = "";
-    var i;
-    for(i = 0; i < data.length; i++){
-      var nm = shortName(data[i].display_name);
-      html += '<div class="addr-item" data-lat="' + data[i].lat + '" data-lon="' + data[i].lon +
-              '" data-name="' + nm.head.replace(/"/g, "") + '">' + nm.head +
-              '<small>' + nm.rest + '</small></div>';
-    }
-    addrList.innerHTML = html;
-    addrList.className = "addr-list show";
-
-    var items = addrList.querySelectorAll(".addr-item");
-    var j;
-    for(j = 0; j < items.length; j++){
-      items[j].addEventListener("click", function(){
-        selectPlace(
-          parseFloat(this.getAttribute("data-lat")),
-          parseFloat(this.getAttribute("data-lon")),
-          this.getAttribute("data-name")
-        );
-      });
-    }
-  }
-
-  function selectPlace(lat, lon, name){
-    var straight = haversine(PRAHA6_LAT, PRAHA6_LON, lat, lon);
-    var km = Math.round(straight * ROAD_FACTOR);
-    oneWayKm = km;
-    placeName = name;
-    source = "addr";
-
-    hideList();
-    addrInput.value = name;
-
-    var roundTrip = km * ROUND_TRIP * KM_RATE;
-    addrResult.innerHTML =
-      '<div class="place"><b>' + name + '</b>≈ ' + km + ' km z Prahy 6 (jednosměrně) · doprava tam a zpět ' + fmt(roundTrip) + ' Kč</div>' +
-      '<button class="clr" id="clrBtn" title="Zrušit">&times;</button>';
-    addrResult.className = "addr-result show";
-
-    document.getElementById("clrBtn").addEventListener("click", clearPlace);
-    render();
-  }
-
-  function clearPlace(){
-    oneWayKm = 0; placeName = ""; source = "none";
-    addrInput.value = "";
-    addrResult.className = "addr-result";
-    addrResult.innerHTML = "";
-    render();
-  }
-
-  addrInput.addEventListener("input", function(){
-    var q = addrInput.value.trim();
-    if(source === "addr"){ source = "none"; oneWayKm = 0; placeName = ""; addrResult.className = "addr-result"; }
-    if(q.length < 3){ hideList(); render(); return; }
-    if(searchTimer){ clearTimeout(searchTimer); }
-    searchTimer = setTimeout(function(){ doSearch(q); }, 450);
-  });
-
-  document.addEventListener("click", function(e){
-    if(!addrList.contains(e.target) && e.target !== addrInput){ hideList(); }
-  });
-
-  /* ---- Ruční zadání km ---- */
-
-  manualToggle.addEventListener("click", function(){
-    if(manualWrap.style.display === "none"){
-      manualWrap.style.display = "flex";
-      manualToggle.textContent = "Skrýt ruční zadání";
-    } else {
-      manualWrap.style.display = "none";
-      manualToggle.textContent = "Zadat vzdálenost ručně";
-    }
-  });
-
-  kmEl.addEventListener("input", function(){
-    var v = parseFloat(kmEl.value);
-    if(isNaN(v) || v < 0){ v = 0; }
-    oneWayKm = v;
-    source = v > 0 ? "manual" : "none";
-    placeName = "";
-    addrInput.value = "";
-    addrResult.className = "addr-result";
-    render();
-  });
-
-  /* ---- Datum + ostatní kroky ---- */
-  dateInput.addEventListener("change", render);
-
-  var inputs = document.querySelectorAll(".opt input");
-  var k;
-  for(k = 0; k < inputs.length; k++){
-    inputs[k].addEventListener("change", render);
-  }
-
-  render();
+  applyType();
 })();
 </script>
 
 <script>
 /* Hlásí výšku obsahu + aktuální cenu rodičovské stránce (pro plovoucí lištu) */
 (function(){
-  var wrap = document.querySelector(".ot-wrap");
-  function report(){
-    if(!wrap || !window.parent){ return; }
-    var st = window.__ovState || {};
-    window.parent.postMessage({
-      ov: true,
-      ovHeight: Math.ceil(wrap.getBoundingClientRect().height),
-      ovTotalText: st.totalText || "",
-      ovHref: st.href || ""
-    }, "*");
-  }
-  window.__ovReport = report;
-  window.addEventListener("load", report);
-  window.addEventListener("resize", report);
-  if(window.ResizeObserver){ new ResizeObserver(report).observe(wrap); }
-  else { setInterval(report, 600); }
-  setTimeout(report, 200);
-  setTimeout(report, 800);
+  var wrap=document.querySelector(".ot-wrap");
+  function report(){if(!wrap||!window.parent){return;}var st=window.__ovState||{};window.parent.postMessage({ov:true,ovHeight:Math.ceil(wrap.getBoundingClientRect().height),ovTotalText:st.totalText||"",ovHref:st.href||""},"*");}
+  window.__ovReport=report;
+  window.addEventListener("load",report);
+  window.addEventListener("resize",report);
+  if(window.ResizeObserver){new ResizeObserver(report).observe(wrap);}else{setInterval(report,600);}
+  setTimeout(report,200);setTimeout(report,800);
 })();
 </script>
 </body>
