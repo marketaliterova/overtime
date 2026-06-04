@@ -571,6 +571,9 @@
     body += "Místo: " + encodeURIComponent(misto) + "%0D%0A";
     body += "Kontakt:%0D%0A";
     ctaEl.setAttribute("href", "mailto:kapela@overtime.cz?subject=Nezávazná%20poptávka%20akce&body=" + body);
+
+    window.__ovState = { totalText: fmt(res.total), href: ctaEl.getAttribute("href") };
+    if(window.__ovReport){ window.__ovReport(); }
   }
 
   /* ---- Vyhledávání místa (OpenStreetMap Nominatim) ---- */
@@ -702,28 +705,26 @@
 </script>
 
 <script>
-/* Hlásí SKUTEČNOU výšku obsahu rodičovské stránce (bez zacyklení) */
+/* Hlásí výšku obsahu + aktuální cenu rodičovské stránce (pro plovoucí lištu) */
 (function(){
   var wrap = document.querySelector(".ot-wrap");
-  var last = 0;
-  function ph(){
-    if(!wrap){ return; }
-    var h = Math.ceil(wrap.getBoundingClientRect().height);
-    if(h && Math.abs(h - last) > 1){
-      last = h;
-      if(window.parent){ window.parent.postMessage({ ovHeight: h }, "*"); }
-    }
+  function report(){
+    if(!wrap || !window.parent){ return; }
+    var st = window.__ovState || {};
+    window.parent.postMessage({
+      ov: true,
+      ovHeight: Math.ceil(wrap.getBoundingClientRect().height),
+      ovTotalText: st.totalText || "",
+      ovHref: st.href || ""
+    }, "*");
   }
-  window.addEventListener("load", ph);
-  window.addEventListener("resize", ph);
-  if(window.ResizeObserver){
-    var ro = new ResizeObserver(function(){ ph(); });
-    ro.observe(wrap);
-  } else {
-    setInterval(ph, 600);
-  }
-  setTimeout(ph, 200);
-  setTimeout(ph, 800);
+  window.__ovReport = report;
+  window.addEventListener("load", report);
+  window.addEventListener("resize", report);
+  if(window.ResizeObserver){ new ResizeObserver(report).observe(wrap); }
+  else { setInterval(report, 600); }
+  setTimeout(report, 200);
+  setTimeout(report, 800);
 })();
 </script>
 </body>
